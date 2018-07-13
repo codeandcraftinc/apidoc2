@@ -2,5 +2,28 @@
 
 'use strict';
 
-require('babel-core/register');
+require('babel-core/register')({
+  plugins: [
+    [
+      'module-resolver',
+      {
+        alias: {
+          _: './lib',
+          test: './test'
+        }
+      }
+    ]
+  ],
+  presets: [
+    [
+      'env',
+      {
+        targets: {
+          node: 'current'
+        }
+      }
+    ]
+  ]
+});
+
 require('../lib');
